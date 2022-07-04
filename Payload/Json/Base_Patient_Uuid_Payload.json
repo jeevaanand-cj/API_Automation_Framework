@@ -1,0 +1,213 @@
+{
+	"resourceType": "Bundle",
+	"identifier": [
+		{
+			"type": {
+				"text": "DocSpera Bundle ID",
+				"coding": [
+					{
+						"code": "DSBID",
+						"display": "DocSpera Bundle ID"
+					}
+				]
+			},
+			"value": "7d6a7d84c7ec4b61a3a5b4a8b4970233"
+		}
+	],
+	"type": "collection",
+	"timestamp": "2022-02-03 19:35:06.646852",
+	"entry": [
+		{
+			"resource": {
+				"id": "{{patient_value}}",
+				"resourceType": "Patient",
+				"identifier": [
+					{
+						"type": {
+							"text": "DocSpera MR ID",
+							"coding": [
+								{
+									"code": "DSMRID",
+									"display": "DocSpera MR ID"
+								}
+							]
+						},
+						"value": "{{docspera_id}}",
+						"assigner": "DocSpera"
+					},
+					{
+						"type": {
+							"text": "Medical Record Number",
+							"coding": [
+								{
+									"code": "MR-DS",
+									"system": "http://hl7.org/fhir/v2/0203",
+									"display": "Medical Record Number"
+								}
+							]
+						},
+						"value": "{{mrn_number}}",
+						"system": "urn:oid:1.2.34.5",
+						"assigner": "DocSpera Test EMR"
+					}
+				],
+				"name": [
+					{
+						"use": "official",
+						"family": [
+							"Doe"
+						],
+						"given": [
+							"John"
+						],
+						"text": "John Doe"
+					}
+				],
+				"telecom": [
+					{
+						"system": "phone",
+						"value": "1112311123",
+						"use": "mobile"
+					},
+					{
+						"system": "email",
+						"value": "jd@test.com",
+						"use": "home"
+					}
+				],
+				"gender": {
+					"coding": [
+						{
+							"system": "https://www.hl7.org/fhir/valueset-administrative-gender.html",
+							"code": "male",
+							"display": "Male"
+						}
+					]
+				},
+				"birthDate": "1939-05-07",
+				"active": true,
+				"address": [
+					{
+						"use": "home",
+						"line": [
+							"1 Address"
+						],
+						"city": "Folsom",
+						"state": "CA",
+						"zip": "95630"
+					}
+				]
+			}
+		},
+		{
+			"resource": {
+				"id": "{{appointment_value}}",
+				"resourceType": "Appointment",
+				"identifier": [
+					{
+						"type": {
+							"text": "DocSpera Calendar ID",
+							"coding": [
+								{
+									"code": "DSCID",
+									"display": "DocSpera Calendar ID"
+								}
+							]
+						},
+						"value": "{{cal_id}}",
+						"assigner": "DocSpera"
+					}
+				],
+				"status": "booked",
+				"appointmentType": {
+					"coding": [
+						{
+							"code": "Surgical"
+						}
+					]
+				},
+				"serviceType": [
+					{
+						"coding": [
+							{
+								"code": "218",
+								"system": "http://hl7.org/fhir/ValueSet/service-type",
+								"display": "Orthopaedic Surgery"
+							}
+						]
+					}
+				],
+				"description": "Left TKA",
+				"start": "2022-02-17 12:30:00",
+				"end": "2022-02-17 13:30:00",
+				"created": "20220203113502",
+				"comment": "Case Notes are here.",
+				"participant": [
+					{
+						"actor": {
+							"reference": "Patient",
+							"display": "John Doe"
+						},
+						"identifier": [
+							{
+								"type": {
+									"text": "DocSpera MR ID",
+									"coding": [
+										{
+											"code": "DSMRID",
+											"display": "DocSpera MR ID"
+										}
+									]
+								},
+								"value": "{{docspera_id}}",
+								"assigner": "DocSpera"
+							}
+						],
+						"display": "John Doe",
+						"required": "required",
+						"status": "accepted"
+					},
+					{
+						"actor": {
+							"type": {
+								"display": "Practitioner"
+							},
+							"identifier": [
+								{
+									"type": {
+										"text": "DocSpera User ID",
+										"coding": [
+											{
+												"code": "DSUSERID",
+												"display": "DocSpera User ID"
+											}
+										]
+									},
+									"value": "{{prac_id}}",
+									"assigner": "DocSpera"
+								}
+							],
+							"display": "Robert Blue"
+						},
+						"required": "required",
+						"status": "accepted"
+					},
+					{
+						"actor": {
+							"type": {
+								"display": "Location"
+							},
+							"display": "General Hospital"
+						},
+						"required": "required",
+						"status": "accepted"
+					}
+				]
+			}
+		}
+	],
+	"request": {
+		"method": "POST",
+		"url": "Patient&Appointment"
+	}
+}

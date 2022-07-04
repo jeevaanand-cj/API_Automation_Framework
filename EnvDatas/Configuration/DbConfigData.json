@@ -1,0 +1,17 @@
+{
+  "DbCredentials": {
+    "HostName": "",
+    "DbUsername": "",
+    "DbuserPassword": ""
+  },
+  "SqlQuery": {
+    "Enpoint_Query": [
+    ],
+    "BaseUrlQuery": [
+    ],
+    "HeadersQuery": [
+    ],
+    "AuthQuery": [
+    ]
+  }
+}

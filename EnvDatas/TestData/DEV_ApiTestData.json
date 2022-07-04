@@ -1,0 +1,82 @@
+{
+        "BaseUrl": {
+                "Put Valid Patient": "https://{storage_account_name}.blob.core.windows.net/{client_name}-adls",
+                "Get Valid Patient": "https://{storage_account_name}.blob.core.windows.net/{client_name}-ack",
+                "Apigee Dev": "https://api-dev.thesurgicalnet.com/dsp/api"
+        },
+
+        "Credentials": {
+                "docspera": {
+                        "ClientId": "bHsSkEGHMuxRldoycwqSN9nc0dvyggF7",
+                        "ClientPassword": "tsF9QYJui7hgqavC",
+                        "TokenUrl": "https://api-dev.thesurgicalnet.com/generatejwt",
+                        "sas_token_adls": "sp=racwdl&st=2022-06-07T13:42:27Z&se=2022-12-07T21:42:27Z&spr=https&sv=2020-08-04&sr=c&sig=ExHQF6nulO%2BwS%2FQvfovvbvN1yqKr%2Bir%2FhmYAH6X1kIw%3D",
+                        "sas_token_ack": "sp=racwdl&st=2022-06-07T13:55:33Z&se=2022-12-07T21:55:33Z&spr=https&sv=2020-08-04&sr=c&sig=xfsfmdNy7OQPd3vEX%2BgadknFtJqYSREmBltvVVnwiH8%3D",
+                        "sas_token_velys_dsep": "sp=racwdl&st=2022-06-07T14:05:09Z&se=2022-12-07T22:05:09Z&spr=https&sv=2020-08-04&sr=c&sig=H9ZIdOTpC6XzP5aj9MZrvt8vexCVi0OmJkfAT30wPIM%3D"
+                }
+        },
+
+        "GetMethodUrls": [
+               {
+                        "Valid Patient": {
+                                "Patient And Appointment": {
+                                        "EndPoint": "/{uuid}-ACK.json",
+                                        "EndPointName": "Patient And Appointment",
+                                        "EnvironmentName": "Dev",
+                                        "ResponseCode": "[200]",
+                                        "ResponseType": "Json",
+                                        "ResponseValidation": ["transaction_id", "status", "DSEP PatientID", "Docspera_ID", "OID"]
+                                }
+                        },
+                       "Apigee Dev": {
+                                "Delta Change": {
+                                        "EndPoint": "/deltachange?org_id={OID}&epoch_from={epoch_time_from}",
+                                        "EndPointName": "Delta Change",
+                                        "EnvironmentName": "Dev",
+                                        "ResponseCode": "[200]",
+                                        "ResponseType": "Json",
+                                        "ResponseValidation": ["org_id", "epoch_from","epoch_to", "resource_count", "url", "id"]
+                                }
+                        }
+                }
+        ],
+
+        "Headers": {
+                "ContentTypeJson": "{'Content-Type': 'application/json'}",
+                "ContentTypeXml": "{'Content-Type': 'application/xml'}",
+                "ContentTypeText": "text/plain",
+                "ContentTypeWithJsonBlob": "{'Content-Type': 'application/json', 'x-ms-blob-type': 'BlockBlob'}",
+                "BlobType": "{'x-ms-blob-type': 'BlockBlob'}",
+                "DeltaChangeHeader": "{'PurposeOfUse': 'http://terminology.hl7.org/CodeSystem/v3-ActReason|CAREMGT','UserID':'1', 'Source':'Velys','Product':'Velys Insight','Application': 'Velys Insight Portal','Content-Type': 'application/json'}"
+        },
+
+
+        "PostMethodUrls": [
+                {
+                        "Valid Patient": {
+                                "Patient And Appointment": {
+                                        "EndPoint": "/{uuid}.json",
+                                        "EndPointName": "Patient And Appointment",
+                                        "EnvironmentName": "Dev",
+                                        "ResponseCode": "[201]",
+                                        "ResponseType": "Plain"
+                                }
+                        }
+                }
+        ],
+
+
+        "PutMethodUrls": [
+                {
+                        "Valid Patient": {
+                                "Patient And Appointment": {
+                                        "EndPoint": "/{uuid}.json",
+                                        "EndPointName": "Patient And Appointment",
+                                        "EnvironmentName": "Dev",
+                                        "ResponseCode": "[201]",
+                                        "ResponseType": "Plain"
+                                }
+                        }
+                }
+        ]
+}

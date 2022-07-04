@@ -1,0 +1,97 @@
+{
+	"resourceType": "Bundle",
+	"identifier": [
+		{
+			"type": {
+				"text": "DocSpera Bundle ID",
+				"coding": [
+					{
+						"code": "DSBID",
+						"display": "DocSpera Bundle ID"
+					}
+				]
+			},
+			"value": "7a60e129b7fe4070893bcb716ed21b83"
+		}
+	],
+	"type": "collection",
+	"timestamp": "2022-02-10 09:30:17.149622",
+	"entry": [
+		{
+			"resource": {
+				"id": "{{coverage_value}}",
+				"resourceType": "Coverage",
+				"type": "extended healthcare",
+				"policyHolder": {
+					"reference": "CBI35"
+				},
+				"relationship": {
+					"code": "self"
+				},
+				"period": {
+					"start": "2011-05-23",
+					"end": "2012-05-23"
+				},
+				"valueMoney": {
+					"value": "100"
+				},
+				"appointment": {
+					"Identifier": {
+						"type": {
+							"text": "DocSpera Calendar ID",
+							"coding": [
+								{
+									"code": "DSCID",
+									"display": "DocSpera Calendar ID"
+								}
+							]
+						},
+						"value": "{{cal_id}}",
+						"assigner": "DocSpera"
+					}
+				},
+				"status": "active",
+				"beneficiary": {
+					"identifier": [
+						{
+							"type": {
+								"text": "DocSpera MR ID",
+								"coding": [
+									{
+										"code": "DSMRID",
+										"display": "DocSpera MR ID"
+									}
+								]
+							},
+							"value": "{{docspera_id}}",
+							"assigner": "DocSpera"
+						}
+					]
+				},
+				"payor": [
+					{
+						"display": "Corporate Baker's Inc. Local #35"
+					}
+				],
+				"class": [
+					{
+						"type": {
+							"coding": [
+								{
+									"system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+									"code": "plan"
+								}
+							]
+						},
+						"value": "1234",
+						"name": "Corporate Baker's Inc. Local #35"
+					}
+				]
+			}
+		}
+	],
+	"request": {
+		"method": "PUT",
+		"url": "Coverage"
+	}
+}
